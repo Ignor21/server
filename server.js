@@ -8,6 +8,8 @@ const port = process.env.PORT || 5000;
 
 db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
+}).catch(function (error) {
+     console.log(error);
 });
 
 var corsOptions = {
