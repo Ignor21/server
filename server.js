@@ -2,18 +2,9 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require("./app/models");
-const mysql = require("mysql2");
-const dbConfig = require("./app/config/db.config.js");
-  
-const connection = mysql.createConnection({
-  host: dbConfig.HOST,
-  user: dbConfig.USER,
-  database: dbConfig.DB,
-  password: dbConfig.PASSWORD
-});
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
