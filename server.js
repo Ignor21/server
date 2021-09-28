@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require("./app/models");
 const mysql = require("mysql2");
-const dbConfig = require("../config/db.config.js");
+const dbConfig = require("./app/config/db.config.js");
   
 const connection = mysql.createConnection({
   host: dbConfig.HOST,
