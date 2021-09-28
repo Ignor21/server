@@ -13,7 +13,7 @@ db.sequelize.sync({ force: true }).then(() => {
 
 app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 require("./app/routes/pvu.routes")(app);
 
