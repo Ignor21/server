@@ -22,10 +22,6 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'IT\'S WORKING!' });
-});
-
-require("./app/routes/turorial.routes")(app);
+require("./app/routes/pvu.routes")(app);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
