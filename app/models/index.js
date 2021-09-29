@@ -5,10 +5,10 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
   operatorsAliases: 0,
-  
+
   define: {
-    timestamps: true,
-    freezeTableName: true
+    timestamps: false,
+    freezeTableName: true,
   },
 
   pool: {
@@ -24,7 +24,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 db.homePage = require("./homePage.model.js")(sequelize, Sequelize);
 
 module.exports = db;
