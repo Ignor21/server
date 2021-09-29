@@ -26,3 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require("./app/routes/pvu.routes")(app);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+app.on('listening', function () {
+  // server ready to accept connections here
+});
