@@ -6,8 +6,8 @@ const db = require("./app/models");
 const app = express();
 const port = process.env.PORT || 5000;
 
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
+db.sequelize.sync().then(() => {
+  
 }).catch(function (error) {
   console.log(error);
 });
