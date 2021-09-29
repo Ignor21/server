@@ -4,7 +4,7 @@ const Op = db.Sequelize.Op;
 
 exports.getHomePageData = (req, res) => {
   let id = 0
-  Tutorial.findByPk(id)
+  HomePage.findByPk(id)
     .then(data => {
       res.send(data);
     })
