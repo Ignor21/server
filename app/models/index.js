@@ -24,6 +24,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.homePage = require("./homePage.model.js")(sequelize, Sequelize);
+db.homePage = require("./pvu.model.js")(sequelize, Sequelize);
+db.news = require("./pvu.model.js")(sequelize, Sequelize);
 
 module.exports = db;
