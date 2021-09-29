@@ -2,7 +2,7 @@ module.exports = {
   HOST: "localhost",
   USER: "root",
   PASSWORD: "123456",
-  DB: "pvu-database",
+  DB: "pvu_database",
   dialect: "mysql",
   pool: {
     max: 5,
