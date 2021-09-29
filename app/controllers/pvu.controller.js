@@ -1,8 +1,16 @@
 const db = require("../models");
-const Tutorial = db.tutorials;
+const HomePage = db.homePage;
 const Op = db.Sequelize.Op;
 
 exports.getHomePageData = (req, res) => {
-  const data = { pvuToLe: 105, leToPvu: 550, nextLeToPvu: 605, date: '4.10' }
-  res.send(data);
+  let id = 0
+  Tutorial.findByPk(id)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving Tutorial with id=" + id
+      });
+    });
 };

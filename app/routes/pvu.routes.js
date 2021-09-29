@@ -1,9 +1,9 @@
 module.exports = app => {
-  const tutorials = require("../controllers/pvu.controller.js");
+  const homePage = require("../controllers/pvu.controller.js");
 
   var router = require("express").Router();
 
-  router.get("/getHomePageData", tutorials.getHomePageData);
+  router.get("/getHomePageData", homePage.getHomePageData);
 
   app.use('/api', router);
 };
