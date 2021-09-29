@@ -17,7 +17,7 @@ exports.getHomePageData = (req, res) => {
 };
 
 exports.getNews = (req, res) => {
-  News.findAll()
+  News.findAll({order:[['id': 'DESC']]})
     .then(data => {
       res.send(data);
     })
