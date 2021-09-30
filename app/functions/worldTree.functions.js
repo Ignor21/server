@@ -1,7 +1,7 @@
 const db = require("../models");
 const WorldTree = db.worldTree;
 
-export getWorldTreeFromRemote = () => {
+exports.getWorldTreeFromRemote = () => {
   var url = "https://backend-farm.plantvsundead.com/world-tree/datas";
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url);
