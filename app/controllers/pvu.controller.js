@@ -2,6 +2,7 @@ const db = require("../models");
 const HomePage = db.homePage;
 const News = db.news;
 const WorldTree = db.worldTree;
+const WeatherHistory = db.weatherHistory;
 const Op = db.Sequelize.Op;
 
 exports.getHomePageData = (req, res) => {
@@ -32,6 +33,18 @@ exports.getNews = (req, res) => {
 exports.getWorldTreeData = (req, res) => {
   let id = 1
   WorldTree.findByPk(id)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        err
+      });
+    });
+};
+
+exports.getWeatherHistory = (req, res) => {
+  WeatherHistory.findAll({order:[['id', 'DESC']]})
     .then(data => {
       res.send(data);
     })

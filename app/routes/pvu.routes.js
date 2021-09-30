@@ -6,6 +6,7 @@ module.exports = app => {
   router.get("/getHomePageData", controller.getHomePageData);
   router.get("/getNews", controller.getNews);
   router.get("/getWorldTreeData", controller.getWorldTreeData);
+  router.get("/getWeatherHistory", controller.getWeatherHistory);
 
   app.use('/api', router);
 };
