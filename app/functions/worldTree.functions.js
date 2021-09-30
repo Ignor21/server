@@ -18,11 +18,11 @@ exports.getWorldTreeFromRemote = () => {
       data += chunk;
     });
     resp.on('end', () => {
-      console.log(JSON.parse(data));
+      let dat = JSON.parse(data).data
       const body = {
-        level: 2,
-        totalWater: 21,
-        reward: 'sd'
+        level: dat.level,
+        totalWater: dat.totalWater,
+        reward: dat.reward
       };
       WorldTree.update(body, {
         where: { id: 1 }
