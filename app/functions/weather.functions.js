@@ -10,6 +10,7 @@ exports.getWeatherFromRemote = () => {
   })
     .then(data => {
       console.log(data[0])
+      console.log(data[0].id)
     })
     .catch(err => {
       console.log(err)
