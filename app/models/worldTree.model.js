@@ -7,7 +7,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER
     },
     reward: {
-      type: Sequelize.STRING
+      type: Sequelize.JSON
     },
   });
 
