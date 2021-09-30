@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require("./app/models");
+const worldTreeFunctions = require("./app/functions/worldTree.functions");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -28,5 +29,5 @@ require("./app/routes/pvu.routes")(app);
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 app.on('listening', function () {
-  // server ready to accept connections here
+  worldTreeFunctions.getWorldTreeFromRemote()
 });

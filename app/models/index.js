@@ -26,5 +26,6 @@ db.sequelize = sequelize;
 
 db.homePage = require("./homePage.model.js")(sequelize, Sequelize);
 db.news = require("./news.model.js")(sequelize, Sequelize);
+db.worldTree = require("./worldTree.model.js")(sequelize, Sequelize);
 
 module.exports = db;
