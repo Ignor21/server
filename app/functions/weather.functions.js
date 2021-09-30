@@ -39,14 +39,17 @@ exports.getWeatherFromRemote = () => {
       let dat = JSON.parse(data).data
       let date = toTitleCase(dat.name)
 
-      console.log(dat)
+      let now = new Date();
+      let time = now.getDate() + '.' + Number(now.getMonth() + 1) + '.' + now.getFullYear()
 
       const body = {
-        date: '',
-        season: '',
-        weather: '',
-        effect: ''
+        date: time,
+        season: toTitleCase(dat.season),
+        weather: toTitleCase(dat.name),
+        effect: dat.description
       };
+
+      console.log(body)
       
       if(date !== weatherBD.weather) {
         console.log('create')
