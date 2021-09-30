@@ -5,8 +5,7 @@ const https = require('https');
 exports.getWorldTreeFromRemote = () => {
   console.log('start func')
   let options = {
-    host: 'https://backend-farm.plantvsundead.com',
-    port: 443,
+    host: 'backend-farm.plantvsundead.com',
     path: '/world-tree/datas',
     method: 'GET',
     headers: {
