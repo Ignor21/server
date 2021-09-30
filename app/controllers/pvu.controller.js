@@ -1,6 +1,7 @@
 const db = require("../models");
 const HomePage = db.homePage;
 const News = db.news;
+const WorldTree = db.worldTree;
 const Op = db.Sequelize.Op;
 
 exports.getHomePageData = (req, res) => {
@@ -18,6 +19,19 @@ exports.getHomePageData = (req, res) => {
 
 exports.getNews = (req, res) => {
   News.findAll({order:[['id', 'DESC']]})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        err
+      });
+    });
+};
+
+exports.getWorldTreeData = (req, res) => {
+  let id = 1
+  WorldTree.findByPk(id)
     .then(data => {
       res.send(data);
     })

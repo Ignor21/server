@@ -1,11 +1,11 @@
 module.exports = app => {
-  const homePage = require("../controllers/pvu.controller.js");
-  const news = require("../controllers/pvu.controller.js");
+  const controller = require("../controllers/pvu.controller.js");
 
   var router = require("express").Router();
 
-  router.get("/getHomePageData", homePage.getHomePageData);
-  router.get("/getNews", news.getNews);
+  router.get("/getHomePageData", controller.getHomePageData);
+  router.get("/getNews", controller.getNews);
+  router.get("/getWorldTreeData", controller.getWorldTreeData);
 
   app.use('/api', router);
 };
