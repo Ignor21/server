@@ -15,10 +15,11 @@ exports.getWorldTreeFromRemote = () => {
   https.get(options, (resp) => {
     let data = '';
     resp.on('data', (chunk) => {
+      console.log(chunk)
       data += chunk;
     });
     resp.on('end', () => {
-      console.log(JSON.parse(data).explanation);
+      console.log(JSON.parse(data));
     });
   }).on("error", (err) => {
     console.log("Error: " + err.message);
