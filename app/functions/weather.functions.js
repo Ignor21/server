@@ -9,7 +9,7 @@ exports.getWeatherFromRemote = () => {
     order:[['id', 'DESC']]
   })
     .then(data => {
-      console.log(data.weatherHistory)
+      console.log(data[0].weatherHistory)
     })
     .catch(err => {
       console.log(err)
