@@ -28,6 +28,5 @@ require("./app/routes/pvu.routes")(app);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
-  console.log('call func')
-  worldTreeFunctions.getWorldTreeFromRemote()
+  setInterval(worldTreeFunctions.getWorldTreeFromRemote(), 5000);
 });
