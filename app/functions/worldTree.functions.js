@@ -15,14 +15,19 @@ exports.getWorldTreeFromRemote = () => {
   https.get(options, (resp) => {
     let data = '';
     resp.on('data', (chunk) => {
-      console.log(chunk)
       data += chunk;
     });
     resp.on('end', () => {
       console.log(JSON.parse(data));
+      const body = {
+        level: 2,
+        totalWater: 21,
+        reward: 'sd'
+      };
+      WorldTree.update(body, {
+        where: { id: 1 }
+      })
     });
-  }).on("error", (err) => {
-    console.log("Error: " + err.message);
   });
 
   /*var url = "https://backend-farm.plantvsundead.com/world-tree/datas";
