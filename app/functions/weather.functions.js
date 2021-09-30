@@ -3,9 +3,12 @@ const WeatherHistory = db.weatherHistory;
 const https = require('https');
 
 exports.getWeatherFromRemote = () => {
-  WeatherHistory.findAll({order:[['id', 'DESC']]})
+  WeatherHistory.findAll({
+    limit: 1,
+    order:[['id', 'DESC']]
+  })
     .then(data => {
-      console.log(data)
+      console.log(data[0])
     })
     .catch(err => {
       console.log(err)
