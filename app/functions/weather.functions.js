@@ -2,6 +2,14 @@ const db = require("../models");
 const WeatherHistory = db.weatherHistory;
 const https = require('https');
 
+const toTitleCase = (phrase) => {
+  return phrase
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
 exports.getWeatherFromRemote = () => {
   let weatherBD = {}
   WeatherHistory.findAll({
@@ -10,7 +18,7 @@ exports.getWeatherFromRemote = () => {
   })
     .then(data => {
       console.log(data[0])
-      console.log(data[0].id)
+      console.log(toTitleCase(data[0].name))
     })
     .catch(err => {
       console.log(err)
