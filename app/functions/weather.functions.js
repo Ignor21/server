@@ -48,14 +48,9 @@ exports.getWeatherFromRemote = () => {
         weather: toTitleCase(dat.name),
         effect: dat.description
       };
-
-      console.log(body)
       
       if(date !== weatherBD.weather) {
-        console.log('create')
-        //WeatherHistory.create(body)
-      } else {
-        console.log('no create')
+        WeatherHistory.create(body)
       }
     });
   });
