@@ -17,8 +17,7 @@ exports.getWeatherFromRemote = () => {
     order:[['id', 'DESC']]
   })
     .then(data => {
-      console.log(data[0])
-      console.log(toTitleCase(data[0].name))
+      weatherBD = data[0]
     })
     .catch(err => {
       console.log(err)
@@ -38,7 +37,9 @@ exports.getWeatherFromRemote = () => {
     });
     resp.on('end', () => {
       let dat = JSON.parse(data).data
-      console.log(dat)
+      let date = toTitleCase(dat.name)
+      console.log(date)
+      console.log(weatherBD.weather)
     });
   });
 };
