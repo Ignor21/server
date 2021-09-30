@@ -38,8 +38,22 @@ exports.getWeatherFromRemote = () => {
     resp.on('end', () => {
       let dat = JSON.parse(data).data
       let date = toTitleCase(dat.name)
-      console.log(date)
-      console.log(weatherBD.weather)
+
+      console.log(dat)
+
+      const body = {
+        date: '',
+        season: '',
+        weather: '',
+        effect: ''
+      };
+      
+      if(date !== weatherBD.weather) {
+        console.log('create')
+        //WeatherHistory.create(body)
+      } else {
+        console.log('no create')
+      }
     });
   });
 };
