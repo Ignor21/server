@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require("./app/models");
 const worldTreeFunctions = require("./app/functions/worldTree.functions");
+const weatherFunctions = require("./app/functions/weather.functions");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -29,5 +30,5 @@ require("./app/routes/pvu.routes")(app);
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
   setInterval(() => worldTreeFunctions.getWorldTreeFromRemote(), 180000);
-  setInterval(() => worldTreeFunctions.getWeatherFromRemote(), 3000);
+  setInterval(() => weatherFunctions.getWeatherFromRemote(), 3000);
 });
