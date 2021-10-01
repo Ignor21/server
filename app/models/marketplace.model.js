@@ -1,7 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
   const Marketplace = sequelize.define("marketplace", {
     id: {
-      type: Sequelize.INTEGER
+      type: Sequelize.INTEGER,
+      primaryKey: true
     },
     config: {
       type: Sequelize.JSON
