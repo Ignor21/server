@@ -1,7 +1,7 @@
 module.exports = (sequelize, Sequelize) => {
   const Marketplace = sequelize.define("marketplace", {
     id: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       primaryKey: true
     },
     config: {
