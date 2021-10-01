@@ -8,10 +8,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.JSON
     },
     endingPrice: {
-      type: Sequelize.INTEGER
+      type: Sequelize.STRING
     },
     timeSell: {
-      type: Sequelize.INTEGER
+      type: Sequelize.STRING
     }
   });
 
