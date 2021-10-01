@@ -32,7 +32,7 @@ exports.getMarketplaceFromRemote = () => {
 
       Marketplace.destroy({ truncate: true })
 
-      Marketplace.bulkCreate(array)
+      Marketplace.bulkCreate(array, {raw: true})
     });
   });
 };
