@@ -20,6 +20,8 @@ exports.getMarketplaceFromRemote = () => {
       let dat = JSON.parse(data).data
       let array = []
 
+      console.log('start')
+
       dat.forEach((element) => {
         let item = {
           id: element.id,
@@ -29,6 +31,8 @@ exports.getMarketplaceFromRemote = () => {
         };
         array.push(item)
       })
+
+      console.log('end')
 
       Marketplace.destroy({ truncate: true })
 
