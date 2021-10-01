@@ -32,5 +32,5 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`)
   setInterval(() => worldTreeFunctions.getWorldTreeFromRemote(), 180000);
   setInterval(() => weatherFunctions.getWeatherFromRemote(), 180000);
-  setInterval(() => marketplaceFunctions.getMarketplaceFromRemote(), 60000);
+  //setInterval(() => marketplaceFunctions.getMarketplaceFromRemote(), 60000);
 });

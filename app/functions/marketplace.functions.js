@@ -18,9 +18,7 @@ exports.getMarketplaceFromRemote = () => {
     });
     resp.on('end', () => {
       let dat = JSON.parse(data).data
-      let array = []
-
-      console.log('start')
+      let arrayfromRemote = []
 
       dat.forEach((element) => {
         let item = {
@@ -29,14 +27,17 @@ exports.getMarketplaceFromRemote = () => {
           endingPrice: element.endingPrice,
           timeSell: element.timeSell
         };
-        array.push(item)
+        arrayfromRemote.push(item)
       })
 
-      console.log('end')
+      let arrayOnDb = News.findAll()
 
       Marketplace.destroy({ truncate: true })
 
-      Marketplace.bulkCreate(array, {raw: true})
+      Marketplace.bulkCreate(arrayfromRemote, {raw: true})
+
+      console.log('otvet ot PVU', arrayfromRemote[0])
+      console.log('nasha db', arrayOnDb[0])
     });
   });
 };
