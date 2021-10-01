@@ -44,7 +44,7 @@ exports.getWorldTreeData = (req, res) => {
 };
 
 exports.getWeatherHistory = (req, res) => {
-  WeatherHistory.findAll({order:[['id', 'DESC']]})
+  WeatherHistory.findAll({order:[['id', 'DESC']], limit: 14})
     .then(data => {
       res.send(data);
     })

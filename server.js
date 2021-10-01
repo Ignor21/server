@@ -4,6 +4,7 @@ const cors = require("cors");
 const db = require("./app/models");
 const worldTreeFunctions = require("./app/functions/worldTree.functions");
 const weatherFunctions = require("./app/functions/weather.functions");
+const marketplaceFunctions = require("./app/functions/marketplace.functions");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -31,4 +32,5 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`)
   setInterval(() => worldTreeFunctions.getWorldTreeFromRemote(), 180000);
   setInterval(() => weatherFunctions.getWeatherFromRemote(), 180000);
+  setInterval(() => marketplaceFunctions.getMarketplaceFromRemote(), 60000);
 });
