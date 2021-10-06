@@ -30,16 +30,16 @@ exports.getMarketplaceFromRemote = () => {
         arrayfromRemote.push(item)
       })
 
-      let arrayOnDb = Marketplace.findAll()
+      Marketplace.findAll({ raw: true }).then(function (arrayOnDb) {
+        const toDelete = arrayOnDb.filter(item => !arrayfromRemote.includes(item));
+        let idArrayToDelete = []
+        toDelete.forEach(item => {
+          idArrayToDelete.push(item.id)
+        })
+        Marketplace.destroy({ where: { id: idArrayToDelete }})
 
-      const toDelete = arrayOnDb.filter(item => !arrayfromRemote.includes(item));
-      let idArrayToDelete = []
-      toDelete.forEach(item => {
-        idArrayToDelete.push(item.id)
-      })
-      Marketplace.destroy({ where: { id: idArrayToDelete }})
-
-      Marketplace.bulkCreate(arrayfromRemote, {raw: true})
+        Marketplace.bulkCreate(arrayfromRemote, {raw: true})
+      });
     });
   });
 };
