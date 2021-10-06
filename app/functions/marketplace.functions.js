@@ -30,7 +30,7 @@ exports.getMarketplaceFromRemote = () => {
         arrayfromRemote.push(item)
       })
 
-      let arrayOnDb = News.findAll()
+      let arrayOnDb = Marketplace.findAll()
 
       const toDelete = arrayOnDb.filter(item => !arrayfromRemote.includes(item));
       let idArrayToDelete = []
