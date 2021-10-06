@@ -31,7 +31,7 @@ exports.getMarketplaceFromRemote = () => {
       })
 
       Marketplace.findAll({ raw: true }).then(function (arrayOnDb) {
-        const toDelete = arrayOnDb.filter(item => !arrayfromRemote.includes(item));
+        const toDelete = arrayOnDb.filter(item => !arrayfromRemote.find( el => el['id'] === item.id ));
         let idArrayToDelete = []
         toDelete.forEach(item => {
           idArrayToDelete.push(item.id)
