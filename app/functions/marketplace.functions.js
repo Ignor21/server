@@ -38,7 +38,7 @@ exports.getMarketplaceFromRemote = () => {
         })
         Marketplace.destroy({ where: { id: idArrayToDelete }})
 
-        Marketplace.bulkCreate(arrayfromRemote, {raw: true}).then(function(user) {}).catch(function(err) { console.log(err) });
+        Marketplace.bulkCreate(arrayfromRemote, {raw: true, updateOnDuplicate: ["config", "endingPrice", "timeSell"]}).then(function(user) {}).catch(function(err) { console.log(err) });
       });
     });
   });
