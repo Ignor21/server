@@ -3,6 +3,7 @@ const HomePage = db.homePage;
 const News = db.news;
 const WorldTree = db.worldTree;
 const WeatherHistory = db.weatherHistory;
+const Marketplace = db.marketplace;
 const Op = db.Sequelize.Op;
 
 exports.getHomePageData = (req, res) => {
@@ -45,6 +46,18 @@ exports.getWorldTreeData = (req, res) => {
 
 exports.getWeatherHistory = (req, res) => {
   WeatherHistory.findAll({order:[['id', 'DESC']], limit: 14})
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        err
+      });
+    });
+};
+
+exports.getMarketplace = (req, res) => {
+  Marketplace.findAll({order:[['id', 'DESC']]})
     .then(data => {
       res.send(data);
     })

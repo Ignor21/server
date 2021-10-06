@@ -32,12 +32,14 @@ exports.getMarketplaceFromRemote = () => {
 
       let arrayOnDb = News.findAll()
 
-      Marketplace.destroy({ truncate: true })
+      const toDelete = arrayOnDb.filter(item => !arrayfromRemote.includes(item));
+      let idArrayToDelete = []
+      toDelete.forEach(item => {
+        idArrayToDelete.push(item.id)
+      })
+      Marketplace.destroy({ where: { id: idArrayToDelete }})
 
       Marketplace.bulkCreate(arrayfromRemote, {raw: true})
-
-      console.log('otvet ot PVU', arrayfromRemote[0])
-      console.log('nasha db', arrayOnDb[0])
     });
   });
 };
