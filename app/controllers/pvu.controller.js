@@ -57,7 +57,7 @@ exports.getWeatherHistory = (req, res) => {
 };
 
 exports.getMarketplace = (req, res) => {
-  Marketplace.findAll({order:[['id', 'DESC']], limit: req.query.limit ? req.query.limit : 100000})
+  Marketplace.findAll({order:[['id', 'DESC']], limit: req.query.limit ? Number(req.query.limit) : 100000})
     .then(data => {
       res.send(data);
     })
