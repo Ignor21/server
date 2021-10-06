@@ -22,7 +22,7 @@ exports.getMarketplaceFromRemote = () => {
 
       dat.forEach((element) => {
         let item = {
-          id: element.id.toString(),
+          id: element.id,
           config: element.config,
           endingPrice: element.endingPrice,
           timeSell: element.timeSell
@@ -31,7 +31,7 @@ exports.getMarketplaceFromRemote = () => {
       })
 
       Marketplace.findAll({ raw: true }).then(function (arrayOnDb) {
-        const toDelete = arrayOnDb.filter(item => !arrayfromRemote.find( el => el['id'] === item.id ));
+        const toDelete = arrayOnDb.filter(item => !arrayfromRemote.find( el => el['id'] === item.id.toString() ));
         let idArrayToDelete = []
         toDelete.forEach(item => {
           idArrayToDelete.push(item.id)
