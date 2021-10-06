@@ -31,14 +31,17 @@ exports.getMarketplaceFromRemote = () => {
       })
 
       Marketplace.findAll({ raw: true }).then(function (arrayOnDb) {
-        const toDelete = arrayOnDb.filter(item => !arrayfromRemote.find( el => el['id'] === item.id.toString() ));
-        let idArrayToDelete = []
+        console.log('arrayOnDb', arrayOnDb[0])
+        console.log('arrayfromRemote', arrayfromRemote[0])
+        const toDelete = arrayOnDb.filter(item => !arrayfromRemote.find( el => el['id'].toString() === item.id ));
+        console.log(toDelete.length)
+        /*let idArrayToDelete = []
         toDelete.forEach(item => {
           idArrayToDelete.push(item.id)
         })
         Marketplace.destroy({ where: { id: idArrayToDelete }})
 
-        Marketplace.bulkCreate(arrayfromRemote, {raw: true})
+        Marketplace.bulkCreate(arrayfromRemote, {raw: true})*/
       });
     });
   });
