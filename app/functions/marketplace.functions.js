@@ -23,7 +23,9 @@ exports.getMarketplaceFromRemote = () => {
       dat.forEach((element) => {
         let item = {
           id: element.id,
-          config: element.config,
+          type: element.config.stats.type,
+          le: element.config.farm.le,
+          hours: element.config.farm.hours,
           endingPrice: element.endingPrice,
           timeSell: element.timeSell
         };
@@ -38,7 +40,7 @@ exports.getMarketplaceFromRemote = () => {
         })
         Marketplace.destroy({ where: { id: idArrayToDelete }})
 
-        Marketplace.bulkCreate(arrayfromRemote, {raw: true, updateOnDuplicate: ["config", "endingPrice", "timeSell"]}).then(function(user) {}).catch(function(err) { console.log(err) });
+        Marketplace.bulkCreate(arrayfromRemote, {raw: true, updateOnDuplicate: ["type", "le", "hours", "endingPrice", "timeSell"]}).then(function(user) {}).catch(function(err) { console.log(err) });
       });
     });
   });

@@ -4,8 +4,14 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       primaryKey: true
     },
-    config: {
-      type: Sequelize.JSON
+    type: {
+      type: Sequelize.STRING
+    },
+    le: {
+      type: Sequelize.STRING
+    },
+    hours: {
+      type: Sequelize.STRING
     },
     endingPrice: {
       type: Sequelize.STRING
